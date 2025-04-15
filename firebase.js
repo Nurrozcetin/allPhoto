@@ -1,10 +1,10 @@
-// firebase.js
 const admin = require("firebase-admin");
-const serviceAccount = require("./serviceAccountKey.json");
+
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    storageBucket: "allphoto-b3444.firebasestorage.app" 
+    storageBucket: "allphoto-b3444.appspot.com",
 });
 
 const bucket = admin.storage().bucket();
